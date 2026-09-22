@@ -8,15 +8,15 @@ Updated 2026-09-22. Implementation, publication and marketplace approval are sep
 | Public source | [Published repository](https://github.com/yesmars/scriptseen-agent-plugins), initial commit `70516e8c502ad1a5d812e7c108cc800d09ca550a` | Maintain reviewed releases |
 | Direct Codex/Claude packages | [Version 1.1.0 release](https://github.com/yesmars/scriptseen-agent-plugins/releases/tag/v1.1.0), also at scriptseen.com/mcp; manifests and skills validated | User installs and signs in |
 | OpenAI / Codex directory | Publisher signed in with an existing owner-managed organization; Create plugin → With MCP requires verified identity before even creating a draft. Both verifications still showed Start (unstarted) at 2026-09-22 19:38 UTC. Codex CLI login and tool discovery against the live server were verified the same day | Owner completes individual/business identity verification, then domain challenge, reviewer account, submission and review |
-| Claude community | Claude Code surface tested live on 2026-09-22 (see below); Cowork untested. The earlier Console session expired, and the prepared form fields are not a saved draft; not submitted | Owner signs in to the Console again, the form is re-entered from listing.json, the owner confirms the directory terms, submit, record the receipt |
+| Claude community | **Submitted** 2026-09-22 at about 23:48 UTC through the Console form after the owner signed in and instructed the submission: public repository root, homepage scriptseen.com/mcp, listing description and three examples, Claude Code surface only (Cowork untested), MIT, privacy URL, review contact hello@scriptseen.com. The Console's Plugin submissions page lists ScriptSeen as "Submitted and pending review" | Anthropic review; respond to reviewer questions at hello@scriptseen.com; not approved or listed |
 | Grok Build | [PR #863 submitted](https://github.com/xai-org/plugin-marketplace/pull/863); upstream catalog/index checks pass locally; all reported Socket/Semgrep checks passed | xAI review; not yet approved or listed |
 | Grok Bot | [Template instructions](grok-bot-template.md) prepared; Grok Bot.app is installed on the owner's Mac (seen 2026-09-22) | Create/test the Bot in the owner's app with the owner present, then share its template |
 | Muse | Connector kit prepared | Rechecked 2026-09-22: the Submit a connector link still targets https://muse.ai/platform itself and opens no form; a working onboarding route is needed |
 | Official MCP Registry | Existing version 1.0.0 verified (registry shows io.github.yesmars/scriptseen 1.0.0 active on 2026-09-22); 1.1.0 manifest prepared | Install mcp-publisher, authenticate as the publisher, publish 1.1.0; existing personal-token connection remains valid |
 
-No marketplace approval or featured listing is claimed. OpenAI verification and
-the Claude Console submission remain owner actions; the earlier Console tabs are
-gone and their form contents were never a saved draft or submission receipt. The final website copy update
+No marketplace approval or featured listing is claimed. The Claude community
+submission is in Anthropic's queue (see the row above); OpenAI verification
+remains an owner action. The final website copy update
 from canonical `bf50327` is live; the API remains on `de6d070`. Never send owner credentials
 in a submission; use the vendor's protected reviewer channel for a dedicated
 reviewer account. See [release evidence](RELEASE-2026-09-22.md).
@@ -37,10 +37,10 @@ reviewer account. See [release evidence](RELEASE-2026-09-22.md).
 - `claude plugin validate <public-export> --strict` passed again. This validates
   the package, not the account connection. Only claim supported Claude surfaces
   after testing them; Cowork has not been tested.
-- The prepared Claude listing uses the public repository root, homepage
-  `https://scriptseen.com/mcp`, privacy page `https://scriptseen.com/privacy`,
-  and review contact `hello@scriptseen.com`. The mandatory directory-terms
-  checkbox remains unchecked pending explicit owner confirmation.
+- The Claude listing was submitted later the same day with the public
+  repository root, homepage `https://scriptseen.com/mcp`, privacy page
+  `https://scriptseen.com/privacy`, and review contact `hello@scriptseen.com`;
+  the directory-terms checkbox was accepted on the owner's instruction.
 - Grok Build PR #863 remains open; both Socket checks and Semgrep report success.
 
 ## Live client verification (2026-09-22, resumed session)
