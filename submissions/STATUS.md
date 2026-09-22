@@ -31,7 +31,8 @@ reviewer account. See [release evidence](RELEASE-2026-09-22.md).
   recognized its HTTP MCP endpoint and 240000 ms timeout. `mcp get` reported
   **Needs authentication**, and `mcp login --no-browser` reached the production
   ScriptSeen consent entry with the correct client name and localhost callback.
-  Google sign-in did not complete in the in-app browser; no successful token
+  Google sign-in did not complete in the in-app browser, and the CLI attempt
+  ended with Authentication timeout. Start a fresh login on resume; no successful token
   exchange, tool invocation or complete live workflow is claimed.
 - `claude plugin validate <public-export> --strict` passed again. This validates
   the package, not the account connection. Only claim supported Claude surfaces
