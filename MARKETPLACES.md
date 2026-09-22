@@ -30,6 +30,12 @@ normal quota; never send the owner's credentials. Host the portal-issued exact
 verification challenge at `/.well-known/openai-apps-challenge` on the MCP host
 or allowed parent host, then Scan Tools. Publish only after approval.
 
+An existing organization can be used even when its internal display name differs
+from the public ScriptSeen listing. Do not create or rename an organization just
+to match branding. The portal currently blocks **creating** a plugin until
+developer identity verification is complete, so the owner must finish that step
+before a draft can be prepared in the portal.
+
 Known OAuth scope: this is OAuth, not an OpenID Connect provider. The server
 currently does not issue ID tokens or expose UserInfo/openid/email scopes.
 OpenAI workspace email-domain restrictions require those additional capabilities;
@@ -54,6 +60,14 @@ can also use https://claude.ai/admin-settings/directory/submissions/plugins/new.
 Accepted applications enter claude-community. claude-plugins-official is curated
 separately, with no application process guaranteeing inclusion. Reviewer tests
 must include login, refusal, expiry, revocation and the local-media handoff.
+
+The Console form has Introduction, Plugin information and Submission details
+steps. Use the public repository root (no subdirectory), select only tested
+surfaces, and provide the MIT license, privacy URL and review contact from the
+listing kit. Its mandatory checkbox accepts Anthropic's Software Directory
+Terms; obtain the owner's explicit action-time confirmation before accepting
+through browser automation. A filled form is not a saved draft or submission.
+Record the confirmation/receipt after **Submit for review** succeeds.
 
 https://code.claude.com/docs/en/plugins#submit-your-plugin-to-the-community-marketplace
 
