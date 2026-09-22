@@ -1,0 +1,16 @@
+{
+  "name": "scriptseen",
+  "metadata": {
+    "description": "Official ScriptSeen scripts, audio and local video handoff integration."
+  },
+  "owner": {
+    "name": "ScriptSeen"
+  },
+  "plugins": [
+    {
+      "name": "scriptseen",
+      "source": "./",
+      "description": "Create short-form scripts, reference audio and private local video handoffs with ScriptSeen."
+    }
+  ]
+}

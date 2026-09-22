@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "scriptseen": {
+      "url": "https://api.scriptseen.com/mcp",
+      "tool_timeout_sec": 240
+    }
+  }
+}

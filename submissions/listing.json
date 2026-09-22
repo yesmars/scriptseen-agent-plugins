@@ -1,0 +1,25 @@
+{
+  "name": "ScriptSeen",
+  "short_description": "Write short-form scripts, hear a paced read, and prepare a private video project.",
+  "description": "ScriptSeen turns a topic and audience into a timed script for TikTok, Instagram Reels or YouTube Shorts. Generate paced reference audio with sentence timing, then open a private project in ScriptSeen's browser studio to select your own clips and render locally. Video preparation returns a browser handoff, not a finished MP4. Script generation and new audio reads use the connected user's ScriptSeen plan allowances.",
+  "website": "https://scriptseen.com",
+  "setup_url": "https://scriptseen.com/mcp",
+  "mcp_url": "https://api.scriptseen.com/mcp",
+  "privacy_policy_url": "https://scriptseen.com/privacy",
+  "terms_url": "https://scriptseen.com/terms",
+  "support_url": "https://scriptseen.com/support",
+  "support_email": "hello@scriptseen.com",
+  "source_repository": "https://github.com/yesmars/scriptseen-agent-plugins",
+  "authentication": "OAuth authorization code with S256 PKCE; dynamic client registration; scoped consent; one-hour access tokens; rotating refresh tokens with a 30-day connection lifetime; user revocation.",
+  "scopes": ["scripts:generate", "audio:generate", "video:prepare"],
+  "starter_prompts": [
+    "Write a 30-second Reel for new creators about filming in natural window light.",
+    "Generate a paced reference read for this ScriptSeen script.",
+    "Prepare this ScriptSeen project for a video using clips on my device."
+  ],
+  "category": "Productivity",
+  "limitations": ["No coaching, billing, account administration or saved-library access.", "No clip upload or server-side video rendering.", "OAuth does not currently support OpenID Connect or enterprise email-domain restrictions."],
+  "publisher_identity": "Select the actual verified publisher in the portal; do not infer a legal company name.",
+  "reviewer_access": "Provision a dedicated reviewer account; supply credentials only through the vendor's protected reviewer channel.",
+  "availability": "Confirm the service's supported regions against provider and marketplace requirements during submission."
+}

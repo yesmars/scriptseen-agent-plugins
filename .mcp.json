@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "scriptseen": {
+      "type": "http",
+      "url": "https://api.scriptseen.com/mcp",
+      "timeout": 240000
+    }
+  }
+}

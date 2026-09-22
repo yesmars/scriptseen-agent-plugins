@@ -1,0 +1,12 @@
+{
+  "name": "scriptseen",
+  "version": "1.1.0",
+  "description": "Create short-form scripts, reference audio and private local video handoffs with ScriptSeen.",
+  "author": {
+    "name": "ScriptSeen",
+    "url": "https://scriptseen.com"
+  },
+  "homepage": "https://scriptseen.com/mcp",
+  "license": "MIT",
+  "repository": "https://github.com/yesmars/scriptseen-agent-plugins"
+}

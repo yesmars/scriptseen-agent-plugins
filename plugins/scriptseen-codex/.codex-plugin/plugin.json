@@ -1,0 +1,28 @@
+{
+  "name": "scriptseen-codex",
+  "version": "1.1.0",
+  "description": "Create short-form scripts, reference audio and private local video handoffs with ScriptSeen.",
+  "author": {
+    "name": "ScriptSeen",
+    "url": "https://scriptseen.com"
+  },
+  "homepage": "https://scriptseen.com/mcp",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "ScriptSeen",
+    "shortDescription": "Scripts, reference audio and local video",
+    "category": "Productivity",
+    "websiteURL": "https://scriptseen.com/mcp",
+    "privacyPolicyURL": "https://scriptseen.com/privacy",
+    "termsOfServiceURL": "https://scriptseen.com/terms",
+    "longDescription": "Create short-form scripts, reference audio and private local video handoffs with ScriptSeen.",
+    "developerName": "ScriptSeen",
+    "defaultPrompt": [
+      "Write a 30-second Reel about my next idea."
+    ],
+    "capabilities": [
+      "Write"
+    ]
+  }
+}

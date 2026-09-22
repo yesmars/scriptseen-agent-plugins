@@ -1,0 +1,16 @@
+{
+  "name": "scriptseen",
+  "owner": {
+    "name": "ScriptSeen"
+  },
+  "plugins": [
+    {
+      "name": "scriptseen",
+      "source": {
+        "type": "local",
+        "path": "./"
+      },
+      "description": "Create short-form scripts, reference audio and private local video handoffs with ScriptSeen."
+    }
+  ]
+}
