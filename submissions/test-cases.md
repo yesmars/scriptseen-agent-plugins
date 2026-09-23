@@ -1,6 +1,9 @@
 # Reviewer test cases
 
 Use a dedicated ScriptSeen account. Never use a shared production owner token.
+Reviewer accounts sign in with a password at
+https://scriptseen.com/app/agents?signin=password; the credentials are supplied
+only through the vendor's protected test-credentials field.
 These are expected outcomes, not assertions that every vendor has passed them.
 
 | ID | Input / action | Expected result |

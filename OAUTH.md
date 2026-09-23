@@ -21,7 +21,9 @@ human identity provider and is used only by ScriptSeen's consent page.
 - GET `/oauth/request/{id}` requires that flow cookie. It returns only the
   client name, client_id, callback and requested scopes for the consent page.
 - POST `/oauth/consent`: JSON request_id, approve, scopes; exact site Origin,
-  Firebase login and the flow cookie required. No automatic authorization.
+  Firebase login and the flow cookie required. The consent page signs in with
+  Google; provisioned reviewer and test accounts use its password form instead
+  (no self-serve password sign-up). No automatic authorization.
   Rejects added scopes. Returns a validated callback URL, preserving state.
 - POST `/oauth/token`: form-encoded authorization_code or refresh_token grant.
   Code is single-use, two-minute lifetime, client/redirect/resource/S256-bound.

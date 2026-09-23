@@ -42,6 +42,19 @@ OpenAI workspace email-domain restrictions require those additional capabilities
 do not claim support for that enterprise feature. There is no client-id-metadata
 URL fetch; dynamic registration is supported instead.
 
+Observed in the portal on 2026-09-22/23: the draft has Info, MCP, Skills,
+Prompts, Testing, Global and Submit steps. Info needs a 256 px directory icon,
+a 48 px composer icon, a subtitle of at most 30 characters, a verified
+developer identity whose name the author field must match, website, support,
+privacy and terms URLs, and a demo recording made in ChatGPT Developer Mode.
+MCP discovers OAuth metadata itself, scans the tools after an OAuth link, and
+asks for a written justification of every explicit tool annotation; the domain
+challenge may be served from the MCP hostname or a parent hostname. Testing
+requires test credentials that work with a plain password (no email codes,
+MFA or social login), exactly five test cases and three negative cases. Submit
+requires release notes and seven policy attestations. ScriptSeen submitted
+version 1.1.0 on 2026-09-23; see `submissions/STATUS.md`.
+
 Official requirements checked 2026-09-22:
 https://developers.openai.com/plugins/deploy/submission
 https://developers.openai.com/plugins/build/auth
@@ -68,6 +81,9 @@ listing kit. Its mandatory checkbox accepts Anthropic's Software Directory
 Terms; obtain the owner's explicit action-time confirmation before accepting
 through browser automation. A filled form is not a saved draft or submission.
 Record the confirmation/receipt after **Submit for review** succeeds.
+ScriptSeen was submitted on 2026-09-22 with the Claude Code surface only; the
+receipt is the "Submitted and pending review" entry on the Console's
+submissions page.
 
 https://code.claude.com/docs/en/plugins#submit-your-plugin-to-the-community-marketplace
 
@@ -115,6 +131,14 @@ onboarding form instead of assuming a Claude ZIP is a Muse package. Muse Code
 is a separate client. The page's public text does not establish a review SLA.
 
 https://muse.ai/platform
+
+## Reviewer access
+
+Reviewers cannot use Google sign-in, email codes or MFA, so ScriptSeen
+provisions dedicated reviewer accounts that sign in with a password at
+https://scriptseen.com/app/agents?signin=password and carry Pro limits. There is
+no self-serve password sign-up. Credentials go only into the vendor's protected
+test-credentials field, never into a listing or a repository.
 
 ## Release and export
 
