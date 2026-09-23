@@ -17,7 +17,13 @@ human identity provider and is used only by ScriptSeen's consent page.
 - GET `/oauth/authorize`: client_id, redirect_uri, response_type=code,
   code_challenge_method=S256, code_challenge, scope, resource and state.
   Redirects to `/app/connect#request=...`; requires an HttpOnly Secure host-only
-  SameSite=Lax flow cookie and expires after ten minutes.
+  SameSite=Lax flow cookie and expires after ten minutes. An unknown client or an
+  unregistered callback gets a 400 page and is never redirected. Once both check
+  out, any other refusal (`unsupported_response_type`, `invalid_request`,
+  `invalid_target`, `invalid_scope`) returns to a loopback callback with
+  `error`, `error_description` and `state`; an https callback gets the 400 page,
+  because open registration means it proves nothing (no open redirector,
+  RFC 9700 §4.11.2).
 - GET `/oauth/request/{id}` requires that flow cookie. It returns only the
   client name, client_id, callback and requested scopes for the consent page.
 - POST `/oauth/consent`: JSON request_id, approve, scopes; exact site Origin,
@@ -29,6 +35,7 @@ human identity provider and is used only by ScriptSeen's consent page.
   Code is single-use, two-minute lifetime, client/redirect/resource/S256-bound.
   Access is an opaque `ss_oauth_` token, valid up to one hour. Refresh is opaque
   `ss_refresh_`, rotates atomically, expires at the original 30-day grant end.
+  A failed Basic client authentication answers 401 with `WWW-Authenticate: Basic`.
   Reusing a consumed code/refresh token revokes its entire family while the
   consumed record remains retained. Never retry a lost refresh response blindly;
   restart authorization because replay is deliberately fail-closed.

@@ -63,7 +63,8 @@ Personal tokens remain active until revoked. Use one per client.
 ## REST fallback
 
 Use the same bearer credentials and application/json:
-- GET https://api.scriptseen.com/v1/agent/capabilities (free discovery).
+- GET https://api.scriptseen.com/v1/agent/capabilities (free discovery: tools,
+  write modes, and the voices and languages audio accepts).
 - POST https://api.scriptseen.com/v1/agent/scripts with
   {"topic":"a useful filming tip","audience":"new creators","platform":"reels","duration":30}.
 - POST https://api.scriptseen.com/v1/agent/audio with result.package under
