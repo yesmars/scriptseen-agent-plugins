@@ -34,7 +34,8 @@ draft from a brief, edit its title and script, and press Save to keep it in your
 account. ChatGPT can also create or revise a script through the MCP tools when
 you ask in the conversation. Saved-script edits check a revision before saving.
 The OpenAI directory submission is still version 1.1.0 under review; direct
-MCP connections and hosted downloads use 1.1.3.
+MCP connections and hosted downloads use 1.1.3. The matching GitHub packages
+are in [release v1.1.3](https://github.com/yesmars/scriptseen-agent-plugins/releases/tag/v1.1.3).
 
 Set tool_timeout_sec = 240 in the Codex server config. You can also install the
 included scriptseen-create skill into your client's supported skills directory.
