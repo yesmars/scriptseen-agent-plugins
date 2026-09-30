@@ -26,6 +26,12 @@ human identity provider and is used only by ScriptSeen's consent page.
   RFC 9700 §4.11.2).
 - GET `/oauth/request/{id}` requires that flow cookie. It returns only the
   client name, client_id, callback and requested scopes for the consent page.
+  The page leads with the callback, because it alone decides who receives the
+  approval: a recognized platform callback (`web/src/lib/agentcallback.js`,
+  exact https paths only), "an app on this device" for loopback, or the
+  website's host with a warning. The client name is shown as the app's own
+  claim. Add a platform there only from its documented callback or a
+  production client record, never by host alone.
 - POST `/oauth/consent`: JSON request_id, approve, scopes; exact site Origin,
   Firebase login and the flow cookie required. The consent page signs in with
   Google; provisioned reviewer and test accounts use its password form instead
@@ -44,8 +50,10 @@ human identity provider and is used only by ScriptSeen's consent page.
 - GET/DELETE `/v1/agent/connections[/grant-id]`: Firebase-only owner management.
   Ten simultaneous OAuth connections per account, separately from personal tokens.
 
-OAuth credentials never authorize account, billing, coaching or saved-library
-routes. The same scoped agent identity and quotas protect MCP and agent REST.
+OAuth credentials never authorize account, billing or coaching routes.
+`library:read` and `library:write` are optional separate permissions for
+owner-scoped saved-script reads and explicit saves or edits. The same scoped agent identity and quotas protect MCP and
+agent REST.
 Every tool request rechecks the grant and account, so revocation is immediate
 for subsequent calls. It does not cancel a generation already admitted.
 

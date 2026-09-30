@@ -13,6 +13,13 @@ reference reads use your normal ScriptSeen plan allowances.
     codex mcp add scriptseen --url https://api.scriptseen.com/mcp
     codex mcp login scriptseen --scopes scripts:generate,audio:generate,video:prepare
 
+To browse saved scripts, include `library:read` in the requested scopes and
+approve **Read saved scripts** in ScriptSeen. Existing connections do not gain
+this permission automatically.
+To save a new script, also request `library:write`. Editing a saved script
+requires both library permissions. Each save is explicit; existing edits use
+a revision check to protect newer changes.
+
 Set tool_timeout_sec = 240 under [mcp_servers.scriptseen] in your config.toml.
 Download https://scriptseen.com/mcp/scriptseen-codex.zip for the MCP + skill
 package. The source repository is https://github.com/yesmars/scriptseen-agent-plugins.
@@ -72,7 +79,9 @@ Use the same bearer credentials and application/json:
   "script_id". Optional "speaker" and "language" select the read.
 - POST https://api.scriptseen.com/v1/agent/video-projects with
   {"project_url":"<the exact project.studio_url returned by script creation>"}.
-Credentials never authorize account, coaching, billing, or saved-library routes.
+Credentials never authorize account, coaching, or billing routes.
+`library:read` grants owner-scoped reads; `library:write` grants explicit
+saved-script creation and editing through MCP.
 
 ## Workflow and errors
 

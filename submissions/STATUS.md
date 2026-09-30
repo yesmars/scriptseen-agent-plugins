@@ -1,23 +1,26 @@
 # Publishing status
 
-Updated 2026-09-23. Implementation, publication, submission and marketplace approval are separate.
+Updated 2026-09-30. Implementation, publication, submission and marketplace approval are separate.
 
 | Destination | Verified status | Remaining external step |
 |---|---|---|
 | OAuth + MCP | Live at api.scriptseen.com; verified on revision `scriptseen-api-00102-xbs` (the API has since moved to `scriptseen-api-00103-wcs` with the same OAuth code). Live owner-account verification on 2026-09-22 with Claude Code 2.1.278 (root plugin) and Codex CLI 0.142.4: consent, scope narrowing, discovery, script, audio, video handoff and on-device render, denial, revocation and scope refusal all observed; see below | Keep the reviewer account and test cases current; refresh observation noted below |
 | Public source | [Published repository](https://github.com/yesmars/scriptseen-agent-plugins), initial commit `70516e8c502ad1a5d812e7c108cc800d09ca550a` | Maintain reviewed releases |
-| Direct Codex/Claude packages | [Version 1.1.0 release](https://github.com/yesmars/scriptseen-agent-plugins/releases/tag/v1.1.0), also at scriptseen.com/mcp; manifests and skills validated | User installs and signs in |
+| Direct Codex/Claude packages | Hosted 1.1.3 ZIPs and `/mcp/server.json` verified live at scriptseen.com on 2026-09-30. The GitHub release tag remains [v1.1.0](https://github.com/yesmars/scriptseen-agent-plugins/releases/tag/v1.1.0). | Sync the public source repository, then users install and sign in |
 | OpenAI / Codex directory | Owner identity verified on 2026-09-22 (individual). A plugin draft (ScriptSeen 1.1.0) exists in the portal: listing, icons, verified developer identity, MCP URL with OAuth discovered, tools scanned with annotation justifications, the scriptseen-create skill uploaded (safety scan pending), three prompts, five test cases and three negative cases, all countries. Domain verified on 2026-09-22 after a Hosting release served the portal token at https://scriptseen.com/.well-known/openai-apps-challenge (canonical `dc6f65e`; the API image is unchanged). A dedicated reviewer account with password sign-in and Pro limits was provisioned on 2026-09-23 (site release `910eb18` adds an opt-in password form for provisioned accounts; the credentials live only in the portal's protected test-credentials box). A Developer Mode demo (script, timed read, video handoff run through the plugin in ChatGPT on the owner's Pro account) is recorded and linked. **Submitted for review** on 2026-09-23 after the owner's attestations; the portal confirmed "ScriptSeen submitted for review" and now shows the review version (1.1.0) as read-only | OpenAI review; respond to reviewer questions; not approved or listed |
 | Claude community | **Submitted** 2026-09-22 at about 23:48 UTC through the Console form after the owner signed in and instructed the submission: public repository root, homepage scriptseen.com/mcp, listing description and three examples, Claude Code surface only (Cowork untested), MIT, privacy URL, review contact hello@scriptseen.com. The Console's Plugin submissions page lists ScriptSeen as "Submitted and pending review" | Anthropic review; respond to reviewer questions at hello@scriptseen.com; not approved or listed |
 | Grok Build | [PR #863 submitted](https://github.com/xai-org/plugin-marketplace/pull/863); upstream catalog/index checks pass locally; all reported Socket/Semgrep checks passed | xAI review; not yet approved or listed |
 | Grok Bot | [Template instructions](grok-bot-template.md) prepared; Grok Bot.app is installed on the owner's Mac (seen 2026-09-22) | Create/test the Bot in the owner's app with the owner present, then share its template |
 | Muse | Connector kit prepared | Rechecked 2026-09-22: the Submit a connector link still targets https://muse.ai/platform itself and opens no form; a working onboarding route is needed |
+| Connector 1.2.0 (held) | Built and tested, not live: `create_script` idempotency key, `generate_audio` from `project_url`, coded errors with `retryable`, `daily_limit` → `message_for_user` plus the Pro offer, and the free `get_account_status` tool. Work: branch `claude/scriptseen-mcp-agent-ux` at `8a14778f`, release note `scriptseen/RELEASE-2026-09-23-mcp-agent-ux.md` on that commit (538 Python / 414 web tests). Merged to canonical, then held off it by revert `af1e8a8d` on 2026-09-24 at the owner's request, so no routine release ships it while OpenAI reviews 1.1.0 | After OpenAI decides on 1.1.0: re-land and ship 1.2.0 (steps in the publishing skill → Next actions) |
+| Connector 1.1.1 and 1.1.2 | Script review and project library sources were incorporated into the live 1.1.3 release; neither version was independently deployed. | Test the combined UI in ChatGPT Developer Mode |
+| Connector 1.1.3 editor workspace | API image `a9298f75` serves 100% of traffic on revision `scriptseen-api-00114-gz9`; Firebase Hosting and hosted 1.1.3 packages deployed 2026-09-30. Local protocol/UI tests and live health, OAuth metadata, manifest, ZIP, unauthenticated and origin refusals passed. No authenticated ChatGPT panel session or portal resubmission is claimed. | Verify create/edit/save in ChatGPT Developer Mode with explicit read and write grants, then update OpenAI submission materials |
 | Official MCP Registry | Existing version 1.0.0 verified (registry shows io.github.yesmars/scriptseen 1.0.0 active on 2026-09-22); 1.1.0 manifest prepared | Install mcp-publisher, authenticate as the publisher, publish 1.1.0; existing personal-token connection remains valid |
 
 No marketplace approval or featured listing is claimed. The Claude community
 submission is in Anthropic's queue and the OpenAI plugin is in OpenAI's review
 queue (see the rows above). The final website copy update
-from canonical `bf50327` is live; the API remains on `de6d070`. Never send owner credentials
+from canonical `a9298f75` is live; the API serves image `a9298f75`. Never send owner credentials
 in a submission; use the vendor's protected reviewer channel for a dedicated
 reviewer account. See [release evidence](RELEASE-2026-09-22.md).
 
@@ -70,4 +73,3 @@ Costs: one script and one new audio read on the owner's account. Observed client
 behaviour worth knowing: Claude Code discards the stored credential as soon as a
 new `mcp login` for the same server starts, and a re-authorization for the same
 client replaced the earlier grant rather than adding a second row.
-
