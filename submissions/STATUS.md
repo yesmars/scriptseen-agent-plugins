@@ -129,3 +129,10 @@ visible and skill checks passed. The plugin overview screenshot still showed
 **Resubmitted for review; not approved or published.**
 
 Review URL: https://platform.openai.com/plugins/manage/plugin_asdk_app_6ab3159fd7b88191b96fbec7b292d4d5?tab=details&version=appsub_6ac13de3a9648191a41b60bc91957924
+
+## Version alignment follow-up (2026-10-03)
+
+Version 1.1.4 aligns server initialize, server.json and both plugin manifests.
+The reviewed four-kind tool schema is unchanged; this is a metadata fix over
+the October 3 icon package. No new directory submission, approval or listing
+is implied by this source update.

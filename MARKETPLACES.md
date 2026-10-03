@@ -55,7 +55,7 @@ MFA or social login), exactly five test cases and three negative cases. Submit
 requires release notes and seven policy attestations. ScriptSeen submitted
 version 1.1.0 on 2026-09-23; see `submissions/STATUS.md`.
 
-Live endpoint 1.1.3 adds MCP Apps script review and a saved-script workspace sidebar.
+Live endpoint 1.1.4 includes MCP Apps script review and a saved-script workspace sidebar.
 The sidebar uses separate `library:read` and `library:write` OAuth scopes,
 owner-scoped list/read/save/edit tools, and a global ChatGPT entrypoint. The
 API and hosted packages were deployed on 2026-09-30; the submitted OpenAI
