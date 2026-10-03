@@ -1,6 +1,6 @@
 {
   "name": "scriptseen-codex",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Create short-form scripts, reference audio and private local video handoffs with ScriptSeen.",
   "author": {
     "name": "ScriptSeen",
@@ -11,6 +11,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "ScriptSeen",
+    "logo": "./assets/scriptseen-icon.png",
+    "composerIcon": "./assets/scriptseen-icon.png",
     "shortDescription": "Scripts, reference audio and local video",
     "category": "Productivity",
     "websiteURL": "https://scriptseen.com/mcp",
