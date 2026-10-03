@@ -1,13 +1,13 @@
 # Publishing status
 
-Updated 2026-09-30. Implementation, publication, submission and marketplace approval are separate.
+Updated 2026-10-03. Implementation, publication, submission and marketplace approval are separate.
 
 | Destination | Verified status | Remaining external step |
 |---|---|---|
 | OAuth + MCP | Connector 1.1.3 is live at api.scriptseen.com on revision `scriptseen-api-00114-gz9`. Health, OAuth metadata, and refusal probes passed on 2026-09-30; no authenticated live 1.1.3 session is claimed. Earlier owner-account verification on 2026-09-22 with Claude Code 2.1.278 and Codex CLI 0.142.4 covered consent, discovery, script, audio, video handoff, revocation and refresh on the 1.1.0 toolset; see below. | Verify the new tools with an authenticated ChatGPT Developer Mode connection |
 | Public source | [Published repository](https://github.com/yesmars/scriptseen-agent-plugins), 1.1.3 source pushed at `f6e89fc600193e974e4ab18596685bb6183403ab` on 2026-09-30 | Maintain reviewed releases |
 | Direct Codex/Claude packages | Hosted 1.1.3 ZIPs and `/mcp/server.json` verified live at scriptseen.com; [GitHub release v1.1.3](https://github.com/yesmars/scriptseen-agent-plugins/releases/tag/v1.1.3) carries the validated packages. | Users install and sign in; existing grants must reconnect for library permissions |
-| OpenAI / Codex directory | Owner identity verified on 2026-09-22 (individual). A plugin draft (ScriptSeen 1.1.0) exists in the portal: listing, icons, verified developer identity, MCP URL with OAuth discovered, tools scanned with annotation justifications, the scriptseen-create skill uploaded (safety scan pending), three prompts, five test cases and three negative cases, all countries. Domain verified on 2026-09-22 after a Hosting release served the portal token at https://scriptseen.com/.well-known/openai-apps-challenge (canonical `dc6f65e`; the API image is unchanged). A dedicated reviewer account with password sign-in and Pro limits was provisioned on 2026-09-23 (site release `910eb18` adds an opt-in password form for provisioned accounts; the credentials live only in the portal's protected test-credentials box). A Developer Mode demo (script, timed read, video handoff run through the plugin in ChatGPT on the owner's Pro account) is recorded and linked. **Submitted for review** on 2026-09-23 after the owner's attestations; the portal confirmed "ScriptSeen submitted for review" and now shows the review version (1.1.0) as read-only | OpenAI review; respond to reviewer questions; not approved or listed |
+| OpenAI / Codex directory | Owner identity verified on 2026-09-22 (individual). A plugin draft (ScriptSeen 1.1.0) exists in the portal: listing, icons, verified developer identity, MCP URL with OAuth discovered, tools scanned with annotation justifications, the scriptseen-create skill uploaded (safety scan pending), three prompts, five test cases and three negative cases, all countries. Domain verified on 2026-09-22 after a Hosting release served the portal token at https://scriptseen.com/.well-known/openai-apps-challenge (canonical `dc6f65e`; the API image is unchanged). A dedicated reviewer account with password sign-in and Pro limits was provisioned on 2026-09-23 (site release `910eb18` adds an opt-in password form for provisioned accounts; the credentials live only in the portal's protected test-credentials box). A Developer Mode demo (script, timed read, video handoff run through the plugin in ChatGPT on the owner's Pro account) is recorded and linked. **Previously submitted for review** on 2026-09-23. On 2026-10-03 the owner requested an icon update and resubmission; review 1.1.0 was returned to draft and the portal accepted an icon-only 1.1.4 package on the same plugin. | 1.1.4 is a saved draft awaiting the owner’s action-time terms/attestation confirmation; not currently submitted, approved or listed |
 | Claude community | **Submitted** 2026-09-22 at about 23:48 UTC through the Console form after the owner signed in and instructed the submission: public repository root, homepage scriptseen.com/mcp, listing description and three examples, Claude Code surface only (Cowork untested), MIT, privacy URL, review contact hello@scriptseen.com. The Console's Plugin submissions page lists ScriptSeen as "Submitted and pending review" | Anthropic review; respond to reviewer questions at hello@scriptseen.com; not approved or listed |
 | Grok Build | [PR #863 submitted](https://github.com/xai-org/plugin-marketplace/pull/863); upstream catalog/index checks pass locally; all reported Socket/Semgrep checks passed | xAI review; not yet approved or listed |
 | Grok Bot | [Template instructions](grok-bot-template.md) prepared; Grok Bot.app is installed on the owner's Mac (seen 2026-09-22) | Create/test the Bot in the owner's app with the owner present, then share its template |
@@ -73,3 +73,56 @@ Costs: one script and one new audio read on the owner's account. Observed client
 behaviour worth knowing: Claude Code discards the stored credential as soon as a
 new `mcp login` for the same server starts, and a re-authorization for the same
 client replaced the earlier grant rather than adding a second row.
+
+## ChatGPT preview icon update (2026-10-01)
+
+The personal **ScriptSeen 1.1.3 Preview** plugin package was updated with the
+existing ScriptSeen iOS PNG as `interface.logo` and `interface.composerIcon`.
+The registered `.app.json` mapping and connected account were preserved.
+ChatGPT accepted the archive and its downloaded package confirmed both image
+references and the PNG; a second upload using a portable root manifest and
+package version 1.0.1 was also accepted, and the page displayed that version.
+However, the preview plugin still showed generic icons after reload. Manage
+exposes name and description editing, but no icon editor. Therefore this is
+**uploaded metadata, not a verified visible icon change**. The older ScriptSeen
+connection already displays its branded icon. No app was deleted/recreated,
+no directory review was resubmitted, and no API deployment was needed.
+
+The reproducible package helper is `integrations/add_chatgpt_icon.py`; supply
+the current downloaded ZIP so its account-specific MCP mapping is retained.
+
+## Plugin icon and review preparation (2026-10-03)
+
+The distributable Codex package is now version **1.1.4**, with the existing
+1024 x 1024 ScriptSeen PNG referenced by both `interface.logo` and
+`interface.composerIcon`. The package builder and public exporter include the
+image explicitly. Archive checks verified both paths, matching image bytes,
+the exact public file allowlist, and identical consumer skill copies; strict
+Claude marketplace validation passed. Public source is pushed at
+`fa0cc058a8fd10419402e6cf47800a9dc5f4ea42`. Hosted downloads
+and the remote API were not changed.
+
+The owner supplied an authenticated Safari publisher session. Existing plugin
+`plugin_asdk_app_6ab3159fd7b88191b96fbec7b292d4d5` showed 1.1.0 in review and
+already displayed the branded listing icon. The 1.1.0 review was canceled as
+part of the requested replacement. Its legacy release download contained only
+`skills/scriptseen-create/SKILL.md` (2,746 bytes), not a complete plugin manifest.
+
+A portable package declaring the existing MCP endpoint was rejected with
+“Publish the existing MCP app before updating its plugin ZIP.” The supported
+legacy update was a metadata-and-skill ZIP with no redeclared MCP configuration.
+It uses the existing package name `app-6ab3159fd7b88191b96fbec7b292d4d5`, preserves
+the exact downloaded skill, adds both icon paths and their PNG, and includes
+release notes. This ZIP was accepted as **1.1.4 Draft**, submission version
+`appsub_6ac13de3a9648191a41b60bc91957924`. The same MCP app remains attached,
+authorized and domain verified. The listing icon is visibly branded and the
+skill’s checks passed. No runtime deployment or personal-preview update occurred.
+
+The portal’s Submit dialog permits submission with advisory findings: category
+confirmation, incomplete legacy MCP setup, and `destructiveHint: false` findings
+for `update_saved_script` and `edit_video`; the latter also needs further review.
+No finding was bypassed or marked fixed. Six terms/compliance attestations remain
+unchecked pending the owner’s explicit action-time confirmation. **No replacement
+review has been submitted yet**; 1.1.0 is no longer in the review queue.
+
+Review URL: https://platform.openai.com/plugins/manage/plugin_asdk_app_6ab3159fd7b88191b96fbec7b292d4d5?tab=details&version=appsub_6ac13de3a9648191a41b60bc91957924

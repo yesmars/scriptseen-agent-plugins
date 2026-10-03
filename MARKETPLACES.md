@@ -63,6 +63,20 @@ directory review remains version 1.1.0. Verify both panels and the new consent
 scopes in ChatGPT Developer Mode, then refresh
 the tool scan, demo, permission justification, and test cases before submitting
 an updated version. Script selection in the desktop composer could follow.
+
+A connection made before `coach:practice` existed cannot be given it by a
+reconnect (ChatGPT repeats the scopes it stored when the app was created); the
+owner switches it on in Agent connections. A reviewer connecting after the scope
+is declared in the submission is asked for it at consent.
+
+The in-chat practice room (`practice_script`, optional `coach:practice` scope)
+adds a fourth permission, an eleventh tool and a UI resource that posts audio to
+the API's own origin. Before it goes into an OpenAI directory submission: set the
+dedicated `_meta.ui.domain` the directory requires for plugins with UI, justify
+the `connect_domains` entry and the microphone request, add the scope and a
+recording-privacy line to the consent justification, and add practice test cases
+(a mic-less host must still show the upload and Studio fallbacks). The microphone
+works only on hosts that delegate it; see `RELEASE-2026-09-30-chatgpt-practice-room.md`.
 File viewers need a durable ScriptSeen file format; MCP events need a persisted
 change feed and subscription handling.
 
@@ -160,3 +174,30 @@ test-credentials field, never into a listing or a repository.
    to the dedicated public repository, retaining all existing history.
 5. Update submissions with exact immutable SHA and observed results. Do not
    call an untested vendor client compatible just because the protocol tests pass.
+
+### ChatGPT preview plugin icon
+
+For the legacy OpenAI directory submission, the 2026-10-03 portal accepted
+an icon-only portable manifest plus the downloaded review skill on the existing
+plugin, without redeclaring its MCP connection. Including the MCP URL in that
+update was rejected with “Publish the existing MCP app before updating its
+plugin ZIP.” Preserve the existing package name and verify the same MCP app
+remains attached after upload. This directory workflow is separate from the
+personal preview workflow below; `.app.json` references cannot be submitted
+through the current directory package route.
+
+For an existing personal ChatGPT plugin, download its ZIP from **More actions**,
+then add the ScriptSeen icon without replacing its registered MCP app mapping:
+
+```bash
+python3 scriptseen/integrations/add_chatgpt_icon.py downloaded-plugin.zip branded-plugin.zip --version 1.0.1
+```
+
+Upload the result with **More actions → Upload new version**. The helper keeps
+all existing metadata and components, adding only `interface.logo`,
+`interface.composerIcon`, and the existing ScriptSeen PNG under `assets/`.
+It supports both a root OpenAI extension and the compatibility manifest,
+and adds the portable root manifest to older packages.
+Keep downloaded account-specific `.app.json` mappings out of source control.
+This updates the personal plugin package; it does not submit a new directory
+review or change the remote API deployment.
